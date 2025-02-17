@@ -61,11 +61,7 @@ spec:
 {{-     if include "fl.isTrue" (list $ . .enabled) }}
 ---
 {{- include "apps-utils.printPath" $ }}
-{{-       if semverCompare ">=1.21.0-0" $.Capabilities.KubeVersion.GitVersion }}
 apiVersion: policy/v1
-{{-       else }}
-apiVersion: policy/v1beta1
-{{-       end }}
 kind: PodDisruptionBudget
 {{- include "apps-helpers.metadataGenerator" (list $ $podDisruptionBudget) }}
 spec:
